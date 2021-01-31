@@ -1,0 +1,34 @@
+# Designated language. https://docs.travis-ci.com/user/languages/javascript-with-nodejs/
+language: node_js
+
+# Specify the node version.
+node_js:
+  - "10"
+
+# Environment variables
+env:
+  global:
+    - GitHub_REF: github.com/B1gF4ceC4t/f4ye-hooks
+
+# Install dependence
+install:
+  - npm install
+
+# Cache the node_modules folder and don't need to download and install all npm packages every time.
+cache:
+  directories:
+    - node_modules
+
+# Perform builds only on the specified branch.  https://docs.travis-ci.com/user/customizing-the-build/#building-specific-branches
+branches:
+  only:
+    - main
+
+# The script to execute.
+script:
+  - npm run lint
+  - npm run test
+  - npm run build
+
+after_success:
+  - npm run coverage

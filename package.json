@@ -1,0 +1,74 @@
+{
+  "name": "f4ye-hooks",
+  "version": "1.0.0",
+  "description": "React Hooks",
+  "main": "./dist/f4ye-hooks.min.js",
+  "module": "./dist/f4ye-hooks.es.js",
+  "sideEffects": false,
+  "scripts": {
+    "test": "NODE_ENV=test jest --coverage --config ./jest.config.js",
+    "coverage": "npm run test && cat ./coverage/lcov.info | coveralls",
+    "lint": "eslint --ignore-pattern **/__tests__/*",
+    "build": "NODE_ENV=production npx rollup -c"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/B1gF4ceC4t/f4ye-hooks.git"
+  },
+  "keywords": [
+    "react-hooks",
+    "hooks",
+    "react",
+    "custom-hooks"
+  ],
+  "author": "Faye",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/B1gF4ceC4t/f4ye-hooks/issues"
+  },
+  "homepage": "https://github.com/B1gF4ceC4t/f4ye-hooks#readme",
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-customizable"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "peerDependencies": {
+    "react": "^16.8.6 || ^17.0.0-0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/plugin-external-helpers": "^7.12.1",
+    "@babel/plugin-proposal-class-properties": "^7.12.1",
+    "@babel/plugin-proposal-object-rest-spread": "^7.12.1",
+    "@babel/polyfill": "^7.12.1",
+    "@babel/preset-env": "^7.12.11",
+    "@babel/preset-react": "^7.12.10",
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-conventional": "^11.0.0",
+    "babel-jest": "^26.6.3",
+    "coveralls": "^3.1.0",
+    "cz-customizable": "^6.3.0",
+    "eslint": "^7.18.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "husky": "^4.3.8",
+    "jest": "^26.6.3",
+    "react": "^16.8.6",
+    "rollup": "^2.36.2",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-uglify": "^6.0.4",
+    "webpack-merge": "^5.7.3"
+  },
+  "dependencies": {
+    "resize-observer-polyfill": "^1.5.1"
+  }
+}
