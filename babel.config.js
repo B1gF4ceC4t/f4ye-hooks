@@ -8,8 +8,15 @@ module.exports = function (api) {
               targets: {
                 node: 'current'
               }
-            },
-            "@babel/preset-react"
+            }
+          ],
+          [
+            '@babel/preset-react',
+            {
+              targets: {
+                node: 'current'
+              }
+            }
           ]
         ]
       }
@@ -21,9 +28,9 @@ module.exports = function (api) {
               modules: false,
               useBuiltIns: 'usage',
               corejs: '2'
-            },
-            "@babel/preset-react"
-          ]
+            }
+          ],
+          ['@babel/preset-react']
         ],
         ignore: ['./node/*.js']
       };
