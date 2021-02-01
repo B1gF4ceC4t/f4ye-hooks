@@ -5,6 +5,7 @@ describe('test useSize', () => {
   test('should be defined', () => {
     expect(useSize).toBeDefined();
   });
+
   test('with argument', () => {
     const hook = renderHook(() => useSize(document.body));
     expect(hook.result.current.width).toEqual(0);
