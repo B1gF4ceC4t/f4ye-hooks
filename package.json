@@ -2,13 +2,18 @@
   "name": "f4ye-hooks",
   "version": "1.0.0",
   "description": "React Hooks",
-  "main": "./dist/f4ye-hooks.min.js",
-  "module": "./dist/f4ye-hooks.es.js",
+  "main": "dist/f4ye-hooks.min.js",
+  "module": "dist/f4ye-hooks.es.js",
+  "files": [
+    "dist"
+  ],
   "sideEffects": false,
   "scripts": {
     "test": "NODE_ENV=test jest --coverage --config ./jest.config.js",
     "coverage": "npm run test && cat ./coverage/lcov.info | coveralls",
-    "lint": "eslint --ignore-pattern **/__tests__/*",
+    "lint": "eslint --ignore-pattern **/__tests__/* --ignore-pattern **/demo/*",
+    "clean": "rimraf dist",
+    "prebuild": "npm run clean",
     "build": "NODE_ENV=production npx rollup -c"
   },
   "repository": {
@@ -51,6 +56,9 @@
     "@babel/preset-react": "^7.12.10",
     "@commitlint/cli": "^11.0.0",
     "@commitlint/config-conventional": "^11.0.0",
+    "@testing-library/react": "^11.2.3",
+    "@testing-library/react-hooks": "^5.0.3",
+    "@testing-library/user-event": "^12.6.2",
     "babel-jest": "^26.6.3",
     "coveralls": "^3.1.0",
     "cz-customizable": "^6.3.0",
@@ -60,15 +68,17 @@
     "husky": "^4.3.8",
     "jest": "^26.6.3",
     "react": "^16.8.6",
+    "react-test-renderer": "^17.0.1",
     "rollup": "^2.36.2",
     "rollup-plugin-babel": "^4.4.0",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
-    "rollup-plugin-uglify": "^6.0.4",
+    "rollup-plugin-terser": "^7.0.2",
     "webpack-merge": "^5.7.3"
   },
   "dependencies": {
+    "intersection-observer": "^0.12.0",
     "resize-observer-polyfill": "^1.5.1"
   }
 }

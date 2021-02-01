@@ -1,7 +1,7 @@
 import path from 'path';
 import { name } from './package.json';
 import resolve from 'rollup-plugin-node-resolve';
-import { uglify } from 'rollup-plugin-uglify';
+import { terser } from 'rollup-plugin-terser';
 import babel from 'rollup-plugin-babel';
 import merge from 'webpack-merge';
 import commonjs from 'rollup-plugin-commonjs';
@@ -42,7 +42,14 @@ const packages = [
       file: path.resolve(__dirname, `dist/${name}.min.js`),
       format: 'umd'
     },
-    plugins: [uglify()]
+    plugins: [
+      terser({
+        output: { comments: false },
+        compress: {
+          drop_console: true
+        }
+      })
+    ]
   },
   {
     output: {
