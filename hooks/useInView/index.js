@@ -18,9 +18,7 @@ const isInView = el => {
 
   if (rect) {
     const { top, bottom, left, right } = rect;
-    return (
-      bottom > 0 && top <= viewPortHeight && left <= viewPortWidth && right > 0
-    );
+    return bottom > 0 && top <= viewHeight && left <= viewWith && right > 0;
   }
 
   return false;
@@ -40,9 +38,9 @@ const useInView = target => {
     const intersectionObserver = new IntersectionObserver(entries => {
       for (const entry of entries) {
         if (entry.isIntersecting) {
-          setInViewport(true);
+          setInView(true);
         } else {
-          setInViewport(false);
+          setInView(false);
         }
       }
     });
